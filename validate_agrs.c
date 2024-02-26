@@ -50,7 +50,7 @@ bool	is_double(char **num_arr, char *num, int index)
     {
 		if((nums_cmp(num_arr[i], num)) == 0)
 		{
-			ft_printf(RED BOLD"There are duplicates\n" RESET);
+			ft_printf("There are duplicates\n");
 			return(true);
 		}
 		else
@@ -72,7 +72,7 @@ bool is_num(char *argv)
     {
         if (!ft_isdigit(argv[i]))
 		{
-			ft_printf(RED BOLD"There are not numbers\n" RESET);
+			ft_printf("There are not numbers\n");
             return(false);
 		}
         i++;

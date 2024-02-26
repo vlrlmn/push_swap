@@ -28,7 +28,7 @@ int stack_len(t_stack *stack)
         size++;
         stack = stack->next;
     }
-    return(0);
+    return(size);
 }
 
 bool stack_sorted(t_stack *stack)
