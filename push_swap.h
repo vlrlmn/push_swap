@@ -10,7 +10,7 @@
 
 typedef struct s_stack
 {
-    int			num;
+    int			num; // value
     int			index;
 	int			push_cost;
 	bool		above_median;
