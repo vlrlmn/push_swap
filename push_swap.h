@@ -13,8 +13,8 @@ typedef struct s_stack
     int			num; // value
     int			index;
 	int			push_cost;
-    int			insert_position;
-	int			cur_position;
+    int			insert_position; //target_pos
+	int			cur_position; // pos
 	bool		above_median;
 	bool		cheapest;
     struct		s_stack *next;

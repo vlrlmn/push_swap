@@ -1,8 +1,4 @@
 #include "push_swap.h"
-void find_insert_pos(a, tmp->index, find_position)
-{
-    
-}
 
 void get_position(t_stack **stack)
 {
@@ -19,20 +15,49 @@ void get_position(t_stack **stack)
     }
 }
 
-void get_insert_pos(t_stack **a, t_stack **b)
+int find_insert_pos(t_stack **a, int b_idx, int *min_pos_idx, int *min_idx)
 {
-    t_stack *tmp;
-    int find_position;
+	t_stack	*cpy_a;
+	int insert_pos;
+	int iterator;
 
-    tmp = *b;
-    find_position = 0;
-    get_position(a);
-    get_position(b);
-    while(tmp)
+	cpy_a = *a;
+	insert_pos = -1;
+	iterator = 0;
+	while(cpy_a)
+	{
+		if(cpy_a->index > b_idx && cpy_a->index < *min_idx)
+		{
+			*min_idx = cpy_a->index;
+			insert_pos = iterator;
+		}
+		else if(cpy_a->index > b_idx && insert_pos == -1)
+		{
+			*min_pos_idx = iterator;
+		}
+		cpy_a = cpy_a->next;
+		iterator++;
+	}
+	return (insert_pos);
+}
+
+void find_b_position_in_a(t_stack **a, t_stack **b)
+{
+    t_stack *cpy_b;
+    int result;
+    int min_pos_idx;
+    int min_idx;
+
+    cpy_b = *b;
+    while(cpy_b)
     {
-        find_position = find_insert_pos(a, tmp->index, find_position);
-        tmp->insert_position = find_position;
-        tmp = tmp->next;
+        min_pos_idx = -1;
+        min_idx = INT_MAX;
+    	result = find_insert_pos(a, cpy_b->index, &min_pos_idx, &min_idx);
+		if(result == -1)
+			result = min_pos_idx;
+		cpy_b->insert_position = result;
+		cpy_b = cpy_b->next;
     }
 }
 
@@ -40,7 +65,9 @@ void sort_b (t_stack **a, t_stack **b)
 {
     while(*b)
     {
-        get_insert_pos(a, b);
+        get_position(a);
+        get_position(b);
+        find_b_position_in_a(a, b);
         get_cost(a, b);
         do_cheapest_move(a, b);
     }
