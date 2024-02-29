@@ -23,7 +23,7 @@ int stack_len(t_stack *stack)
     size = 0;
     if(!stack)
         return(0);
-    while(stack->next)
+    while(stack)
     {
         size++;
         stack = stack->next;

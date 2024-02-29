@@ -23,6 +23,8 @@ void  get_index(t_stack *a, int stack_len)
     t_stack *ptr;
     int value;
 
+    if(!a)
+        return ;
     while(stack_len > 0)
     {
         ptr = a;

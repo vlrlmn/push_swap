@@ -7,6 +7,8 @@ void get_position(t_stack **stack)
 
     i = 0;
     tmp = *stack;
+	if (!stack) 
+		return;
     while(tmp)
     {
         tmp->cur_position = i;
@@ -49,6 +51,8 @@ void find_b_position_in_a(t_stack **a, t_stack **b)
     int min_idx;
 
     cpy_b = *b;
+	if (!a || !b) 
+		return;
     while(cpy_b)
     {
         min_pos_idx = -1;

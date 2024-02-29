@@ -24,7 +24,7 @@ typedef struct s_stack
 	struct		s_stack *target_node;
 }	t_stack;
 
-void fill_stack_a(t_stack **a, char **argv);
+void fill_stack_a(t_stack **a, t_stack **b, char **argv);
 bool valid_nums(char **argv);
 bool is_num(char *argv);
 bool	is_double(char **num_arr, char *num, int index);
@@ -35,6 +35,7 @@ int stack_len(t_stack *stack);
 t_stack *get_stack_bottom(t_stack *stack);
 t_stack *get_stack_before_bottom(t_stack *stack);
 void sort_three(t_stack **a);
+void free_err(t_stack **a, t_stack **b);
 
 /*Operations*/
 void pb(t_stack **stack_a, t_stack **stack_b);

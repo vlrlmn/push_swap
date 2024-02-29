@@ -22,8 +22,9 @@ void get_cost(t_stack **a, t_stack **b)
 
     len_a = stack_len(*a);
     len_b = stack_len(*b);
-
     cpy_b = *b;
+    if (!a || !b) 
+		return ;
     while(cpy_b)
     {
         calculate_cost_b(cpy_b, len_b);
