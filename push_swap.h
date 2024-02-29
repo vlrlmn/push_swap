@@ -17,6 +17,8 @@ typedef struct s_stack
 	int			cur_position; // pos
 	bool		above_median;
 	bool		cheapest;
+    int         cost_insert_a;
+    int         cost_top_b;
     struct		s_stack *next;
     struct		s_stack *prev;
 	struct		s_stack *target_node;
