@@ -1,5 +1,18 @@
 #include "push_swap.h"
 
+void free_argv(char **processed_argv)
+{
+    int i;
+
+    i = 0;
+    while(processed_argv[i])
+    {
+        free(processed_argv[i]);
+        i++;
+    }
+    free(processed_argv);
+}
+
 void free_stack(t_stack **stack)
 {
     t_stack *cur;

@@ -1,5 +1,19 @@
 #include "push_swap.h"
 
+
+void sort_three(t_stack **a)
+{
+    t_stack *max_value;
+
+    max_value = find_max(*a);
+    if(max_value == *a)
+        ra(a);
+    else if((*a)->next == max_value)
+        rra(a);
+    if((*a)->num > (*a)->next->num)
+        sa(a);
+}
+
 void get_position(t_stack **stack)
 {
     t_stack *tmp;
@@ -77,17 +91,4 @@ void sort_b (t_stack **a, t_stack **b)
     }
     if(!stack_sorted(*a))
         shift(a);
-}
-
-void sort_three(t_stack **a)
-{
-    t_stack *max_value;
-
-    max_value = find_max(*a);
-    if(max_value == *a)
-        ra(a);
-    else if((*a)->next == max_value)
-        rra(a);
-    if((*a)->num > (*a)->next->num)
-        sa(a);
 }
