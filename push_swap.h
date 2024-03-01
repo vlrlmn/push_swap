@@ -39,6 +39,9 @@ bool	stack_sorted(t_stack *stack);
 void	sort_stacks(t_stack **a, t_stack **b, int stack_len);
 void	sort_three(t_stack **a);
 void	sort_b (t_stack **a, t_stack **b);
+void	move_a(t_stack **a);
+int find_max(t_stack *stack);
+void get_position(t_stack **stack);
 /*Cost and cheapest move*/
 void    do_cheapest_move(t_stack **a, t_stack **b);
 void get_cost(t_stack **a, t_stack **b);

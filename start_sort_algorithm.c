@@ -66,10 +66,10 @@ void push_to_three(t_stack **a, t_stack **b, int stack_len)
 
 void sort_stacks(t_stack **a, t_stack **b, int stack_len)
 {
-    get_index(a, stack_len);
+    get_index(*a, stack_len);
     push_to_three(a, b, stack_len);
     sort_three(a);
     sort_b(a, b);
-    if(!stack_sorted(*a))
-        rotate_nodes(a);
+    // if(!stack_sorted(*a))
+    //     rotate_nodes(a);
 }

@@ -1,4 +1,15 @@
 #include "push_swap.h"
+t_stack *find_last(t_stack *stack)
+{
+    if (stack == NULL)
+        return NULL;
+
+    while (stack->next != NULL)
+    {
+        stack = stack->next;
+    }
+    return stack;
+}
 
 int stack_len(t_stack *stack)
 {

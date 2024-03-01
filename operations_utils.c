@@ -15,3 +15,17 @@ t_stack *get_stack_bottom(t_stack *stack)
     }
     return(stack);
 }
+
+int	find_max(t_stack *stack)
+{
+	int		index;
+
+	index = stack->index;
+	while (stack)
+	{
+		if (stack->index > index)
+			index = stack->index;
+		stack = stack->next;
+	}
+	return (index);
+}
