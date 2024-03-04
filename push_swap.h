@@ -6,7 +6,7 @@
 /*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 18:03:37 by vlomakin          #+#    #+#             */
-/*   Updated: 2024/03/04 18:15:12 by vlomakin         ###   ########.fr       */
+/*   Updated: 2024/03/04 19:46:14 by vlomakin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ int					nums_cmp(char *s1, char *s2);
 void				fill_stack_a(t_stack **a, t_stack **b, char **argv);
 int					stack_len(t_stack *stack);
 bool				stack_sorted(t_stack *stack);
+void				get_index(t_stack *a, int stack_len);
 /*Sort_algorithm*/
 void				sort_stacks(t_stack **a, t_stack **b, int stack_len);
 void				sort_three(t_stack **a);

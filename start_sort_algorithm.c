@@ -6,7 +6,7 @@
 /*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 18:03:48 by vlomakin          #+#    #+#             */
-/*   Updated: 2024/03/04 18:30:52 by vlomakin         ###   ########.fr       */
+/*   Updated: 2024/03/04 19:54:38 by vlomakin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,6 @@ void	sort_stacks(t_stack **a, t_stack **b, int stack_len)
 	push_to_three(a, b, stack_len);
 	sort_three(a);
 	sort_b(a, b);
-	if (!stack_sorted(*a))
-		rotate_nodes(a);
+	// if (!stack_sorted(*a))
+	// 	move_a(a);
 }

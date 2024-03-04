@@ -6,7 +6,7 @@
 /*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 18:03:30 by vlomakin          #+#    #+#             */
-/*   Updated: 2024/03/04 18:03:31 by vlomakin         ###   ########.fr       */
+/*   Updated: 2024/03/04 19:54:48 by vlomakin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,16 @@ int	main(int argc, char **argv)
 	b = NULL;
 	processed_argv = process_args(argc, argv, &need_free);
 	perform_sorting(&a, &b, processed_argv);
+    while(a)
+    {
+        printf("final a -> %d ", a->num);
+        a = a->next;
+    }
+		while(b)
+    {
+        printf("final b -> %d ", b->num);
+        b = b->next;
+    }
 	free_stack(&a);
 	free_stack(&b);
 	if (need_free)
