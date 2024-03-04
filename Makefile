@@ -16,6 +16,7 @@ SRC = 	main.c \
 		stack_utils.c \
 		swap.c \
 		validate_agrs.c \
+		cheapest_move_operations.c \
 
 OBJ = $(SRC:.c=.o)
 
