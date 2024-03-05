@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   start_sort_algorithm.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 18:03:48 by vlomakin          #+#    #+#             */
-/*   Updated: 2024/03/04 19:54:38 by vlomakin         ###   ########.fr       */
+/*   Updated: 2024/03/05 11:37:17 by lomakinaval      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,16 +49,18 @@ void	get_index(t_stack *a, int stack_len)
 	}
 }
 
-void	push_to_three(t_stack **a, t_stack **b, int stack_len)
+void	push_to_three(t_stack **a, t_stack **b)
 {
 	int	pushed;
 	int	middle;
 	int	i;
+	int len;
 
 	pushed = 0;
 	i = 0;
-	middle = stack_len / 2;
-	while (stack_len > 6 && i < stack_len && pushed < middle)
+	len = stack_len(*a);
+	middle = len / 2;
+	while (len > 6 && i < len && pushed < middle)
 	{
 		if ((*a)->index <= middle)
 		{
@@ -69,7 +71,7 @@ void	push_to_three(t_stack **a, t_stack **b, int stack_len)
 			ra(a);
 		i++;
 	}
-	while (stack_len - pushed > 3)
+	while (len - pushed > 3)
 	{
 		pb(a, b);
 		pushed++;
@@ -79,9 +81,9 @@ void	push_to_three(t_stack **a, t_stack **b, int stack_len)
 void	sort_stacks(t_stack **a, t_stack **b, int stack_len)
 {
 	get_index(*a, stack_len);
-	push_to_three(a, b, stack_len);
+	push_to_three(a, b);
 	sort_three(a);
 	sort_b(a, b);
-	// if (!stack_sorted(*a))
-	// 	move_a(a);
+	if (!stack_sorted(*a))
+		move_a(a);
 }

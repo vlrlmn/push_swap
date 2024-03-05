@@ -3,28 +3,55 @@
 /*                                                        :::      ::::::::   */
 /*   call_sort.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 18:03:20 by vlomakin          #+#    #+#             */
-/*   Updated: 2024/03/04 19:49:10 by vlomakin         ###   ########.fr       */
+/*   Updated: 2024/03/05 10:48:14 by lomakinaval      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_three(t_stack **stack)
-{
-	int	highest;
+// void	sort_three(t_stack **stack)
+// {
+// 	int	highest;
 
-	if (stack_sorted(*stack))
-		return ;
-	highest = find_max(*stack);
-	if ((*stack)->index == highest)
-		ra(stack);
-	else if ((*stack)->next->index == highest)
-		rra(stack);
-	if ((*stack)->index > (*stack)->next->index)
-		sa(stack);
+// 	if (stack_sorted(*stack))
+// 		return ;
+// 	highest = find_max(*stack);
+// 	if ((*stack)->index == highest)
+// 		ra(stack);
+// 	else if ((*stack)->next->index == highest)
+// 		rra(stack);
+// 	if ((*stack)->index > (*stack)->next->index)
+// 		sa(stack);
+// }
+
+void sort_three(t_stack **stack)
+{
+    int top;
+    int middle;
+    int bottom;
+
+	top = (*stack)->num;
+	middle  = (*stack)->next->num;
+	bottom = (*stack)->next->next->num;
+    if (top > middle && middle < bottom && top < bottom)
+        sa(stack);
+    else if (top > middle && middle > bottom && top > bottom)
+    {
+        sa(stack);
+        rra(stack);
+    }
+    else if (top > middle && middle < bottom && top > bottom)
+        ra(stack);
+    else if (top < middle && middle > bottom && top < bottom)
+    {
+        sa(stack);
+        ra(stack);
+    }
+    else if (top < middle && middle > bottom && top > bottom)
+        rra(stack);
 }
 
 void	get_position(t_stack **stack)
@@ -102,6 +129,6 @@ void	sort_b(t_stack **a, t_stack **b)
 		get_cost(a, b);
 		do_cheapest_move(a, b);
 	}
-	if (!stack_sorted(*a))
-		move_a(a);
+	// if (!stack_sorted(*a))
+	// 	move_a(a);
 }
