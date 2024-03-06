@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   finish_sort.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
+/*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 18:03:28 by vlomakin          #+#    #+#             */
-/*   Updated: 2024/03/05 18:55:56 by lomakinaval      ###   ########.fr       */
+/*   Updated: 2024/03/06 16:28:51 by vlomakin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ void	move_a(t_stack **a)
 	}
 	else
 	{
+		// if (lowest_pos == 0)
+		// 	sa(a);
 		printf("Here 2\n");
 		printf("len: %d\n", len);
 		printf("len / 2: %d\n", len / 2);

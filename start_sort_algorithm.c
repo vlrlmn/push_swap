@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   start_sort_algorithm.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
+/*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 18:03:48 by vlomakin          #+#    #+#             */
-/*   Updated: 2024/03/05 18:32:40 by lomakinaval      ###   ########.fr       */
+/*   Updated: 2024/03/06 17:24:54 by vlomakin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	get_index(t_stack *a, int stack_len)
 		save_index(a, value, ptr, &highest);
 		stack_len--;
 		if (highest != NULL)
-			highest->index = stack_len;
+			a->index = stack_len;
 	}
 }
 
@@ -81,11 +81,17 @@ void	push_to_three(t_stack **a, t_stack **b)
 void	sort_stacks(t_stack **a, t_stack **b, int stack_len)
 {
 	get_index(*a, stack_len);
+	t_stack	*tmp = *a;
+	while(tmp)
+	{
+		printf("index a: %d\n", tmp->index);
+		tmp = tmp->next;
+	}
 	push_to_three(a, b);
 	sort_three(a);
 	sort_b(a, b);
 	if (!stack_sorted(*a))
-	{	
+	{
 		printf("not sorted\n");
 		move_a(a);
 	}

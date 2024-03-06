@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   call_sort.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
+/*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 18:03:20 by vlomakin          #+#    #+#             */
-/*   Updated: 2024/03/05 18:50:48 by lomakinaval      ###   ########.fr       */
+/*   Updated: 2024/03/06 17:15:51 by vlomakin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void sort_three(t_stack **stack)
+void	sort_three(t_stack **stack)
 {
     int top;
     int middle;
@@ -24,7 +24,7 @@ void sort_three(t_stack **stack)
     if (top > middle && middle < bottom && top < bottom)
         sa(stack);
     else if (top > middle && middle > bottom && top > bottom)
-    {
+	{
         sa(stack);
         rra(stack);
     }
@@ -116,6 +116,7 @@ void	sort_b(t_stack **a, t_stack **b)
 		{
 			printf("num a: %d\n", tmp->num);
 			printf("cur position a: %d\n", tmp->cur_position);
+			printf("index a: %d\n", (*a)->index);
 			tmp = tmp->next;
 		}
 		get_position(b);
@@ -124,6 +125,7 @@ void	sort_b(t_stack **a, t_stack **b)
 		{
 			printf("num b: %d\n", tmp->num);
 			printf("cur position b: %d\n", tmp->cur_position);
+			printf("index b: %d\n", (*b)->index);
 			tmp = tmp->next;
 		}
 		find_b_position_in_a(a, b);

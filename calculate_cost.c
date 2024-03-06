@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   calculate_cost.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
+/*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 18:03:17 by vlomakin          #+#    #+#             */
-/*   Updated: 2024/03/05 16:02:07 by lomakinaval      ###   ########.fr       */
+/*   Updated: 2024/03/06 17:08:45 by vlomakin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
