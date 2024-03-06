@@ -6,26 +6,11 @@
 /*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 18:03:20 by vlomakin          #+#    #+#             */
-/*   Updated: 2024/03/05 10:48:14 by lomakinaval      ###   ########.fr       */
+/*   Updated: 2024/03/05 18:50:48 by lomakinaval      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-// void	sort_three(t_stack **stack)
-// {
-// 	int	highest;
-
-// 	if (stack_sorted(*stack))
-// 		return ;
-// 	highest = find_max(*stack);
-// 	if ((*stack)->index == highest)
-// 		ra(stack);
-// 	else if ((*stack)->next->index == highest)
-// 		rra(stack);
-// 	if ((*stack)->index > (*stack)->next->index)
-// 		sa(stack);
-// }
 
 void sort_three(t_stack **stack)
 {
@@ -60,9 +45,9 @@ void	get_position(t_stack **stack)
 	int		i;
 
 	i = 0;
-	tmp = *stack;
 	if (!stack)
 		return ;
+	tmp = *stack;
 	while (tmp)
 	{
 		tmp->cur_position = i;
@@ -88,12 +73,13 @@ int	find_insert_pos(t_stack **a, int b_idx, int *min_pos_idx, int *min_idx)
 			insert_pos = iterator;
 		}
 		else if (cpy_a->index > b_idx && insert_pos == -1)
-		{
 			*min_pos_idx = iterator;
-		}
 		cpy_a = cpy_a->next;
 		iterator++;
 	}
+	if (insert_pos == -1 && *min_pos_idx == -1)
+        insert_pos = iterator;
+	printf("target position b in a: %d\n", insert_pos);
 	return (insert_pos);
 }
 
@@ -119,16 +105,53 @@ void	find_b_position_in_a(t_stack **a, t_stack **b)
 	}
 }
 
+
 void	sort_b(t_stack **a, t_stack **b)
 {
 	while (*b)
 	{
 		get_position(a);
+		t_stack *tmp = *a;
+		while(tmp)
+		{
+			printf("num a: %d\n", tmp->num);
+			printf("cur position a: %d\n", tmp->cur_position);
+			tmp = tmp->next;
+		}
 		get_position(b);
+		tmp = *b;
+		while(tmp)
+		{
+			printf("num b: %d\n", tmp->num);
+			printf("cur position b: %d\n", tmp->cur_position);
+			tmp = tmp->next;
+		}
 		find_b_position_in_a(a, b);
 		get_cost(a, b);
+		tmp = *a;
+		// while(tmp)
+		// {
+		// 	printf("cost a: %d\n", tmp->cost_top_b);
+		// 	tmp = tmp->next;
+		// }
+		// tmp = *b;
+		// while(tmp)
+		// {
+		// 	printf("cost b: %d\n", tmp->cost_insert_a);
+		// 	tmp = tmp->next;
+		// }
 		do_cheapest_move(a, b);
+	// 	tmp = *a;
+	// 	while(tmp)
+	// 	{
+	// 		printf("cheapest move a: %d\n", tmp->num);
+	// 		tmp = tmp->next;
+	// 	}
+	// 	tmp = *b;
+	// 	while(tmp)
+	// 	{
+	// 		printf("cheapest move b: %d\n", tmp->num);
+	// 		tmp = tmp->next;
+	// 	}
 	}
-	// if (!stack_sorted(*a))
-	// 	move_a(a);
 }

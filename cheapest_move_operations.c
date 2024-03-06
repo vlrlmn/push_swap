@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cheapest_move_operations.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 18:05:04 by vlomakin          #+#    #+#             */
-/*   Updated: 2024/03/04 19:33:34 by vlomakin         ###   ########.fr       */
+/*   Updated: 2024/03/05 18:24:51 by lomakinaval      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,11 @@ void	do_rr(t_stack **a, t_stack **b, int *cost_a, int *cost_b)
 
 void	do_rrr(t_stack **a, t_stack **b, int *cost_a, int *cost_b)
 {
-	while (*cost_a > 0 && *cost_b > 0)
+	while (*cost_a < 0 && *cost_b < 0)
 	{
-		(*cost_a)--;
-		(*cost_b)--;
-		rr(a, b);
+		(*cost_a)++;
+		(*cost_b)++;
+		rrr(a, b);
 	}
 }
 

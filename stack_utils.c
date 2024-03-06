@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 18:03:46 by vlomakin          #+#    #+#             */
-/*   Updated: 2024/03/04 18:03:47 by vlomakin         ###   ########.fr       */
+/*   Updated: 2024/03/05 17:25:02 by lomakinaval      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,10 @@ int	create_node(t_stack **stack, int n)
 		return (0);
 	node->next = NULL;
 	node->num = n;
+	node->cur_position = -1;
+	node->insert_position = -1;
+	node->cost_insert_a = -1;
+	node->cost_top_b = -1;
 	if (!(*stack))
 	{
 		*stack = node;

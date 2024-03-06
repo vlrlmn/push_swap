@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   do_cheapest_move.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 18:03:23 by vlomakin          #+#    #+#             */
-/*   Updated: 2024/03/04 18:09:55 by vlomakin         ###   ########.fr       */
+/*   Updated: 2024/03/05 18:14:18 by lomakinaval      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	do_cheapest_move(t_stack **a, t_stack **b)
 	{
 		if (abs(cpy_b->cost_insert_a) + abs(cpy_b->cost_top_b) < abs(cheapest))
 		{
-			cheapest = abs(cpy_b->cost_insert_a) + abs(cpy_b->cost_top_b);
+			cheapest = abs(cpy_b->cost_top_b) + abs(cpy_b->cost_insert_a);
 			cost_a = cpy_b->cost_insert_a;
 			cost_b = cpy_b->cost_top_b;
 		}

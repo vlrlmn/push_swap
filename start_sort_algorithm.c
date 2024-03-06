@@ -6,7 +6,7 @@
 /*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 18:03:48 by vlomakin          #+#    #+#             */
-/*   Updated: 2024/03/05 11:37:17 by lomakinaval      ###   ########.fr       */
+/*   Updated: 2024/03/05 18:32:40 by lomakinaval      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,5 +85,8 @@ void	sort_stacks(t_stack **a, t_stack **b, int stack_len)
 	sort_three(a);
 	sort_b(a, b);
 	if (!stack_sorted(*a))
+	{	
+		printf("not sorted\n");
 		move_a(a);
+	}
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 18:03:30 by vlomakin          #+#    #+#             */
-/*   Updated: 2024/03/04 19:54:48 by vlomakin         ###   ########.fr       */
+/*   Updated: 2024/03/05 12:15:31 by lomakinaval      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,15 +62,11 @@ int	main(int argc, char **argv)
 	b = NULL;
 	processed_argv = process_args(argc, argv, &need_free);
 	perform_sorting(&a, &b, processed_argv);
-    while(a)
+	t_stack *tmp = a;
+    while(tmp)
     {
-        printf("final a -> %d ", a->num);
-        a = a->next;
-    }
-		while(b)
-    {
-        printf("final b -> %d ", b->num);
-        b = b->next;
+        printf("final a -> %d ", tmp->num);
+        tmp = tmp->next;
     }
 	free_stack(&a);
 	free_stack(&b);

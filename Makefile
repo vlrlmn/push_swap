@@ -1,6 +1,6 @@
 NAME = push_swap
 
-CC = cc -Wall -Wextra -Werror -fsanitize=address
+CC = cc -Wall -Wextra -Werror -fsanitize=address --debug
 
 SRC = 	main.c \
 		start_sort_algorithm.c \

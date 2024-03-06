@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   calculate_cost.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 18:03:17 by vlomakin          #+#    #+#             */
-/*   Updated: 2024/03/04 19:29:09 by vlomakin         ###   ########.fr       */
+/*   Updated: 2024/03/05 16:02:07 by lomakinaval      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
 
 void	calculate_cost_b(t_stack *b, int len_b)
 {
