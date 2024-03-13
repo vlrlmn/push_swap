@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   finish_sort.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 18:03:28 by vlomakin          #+#    #+#             */
-/*   Updated: 2024/03/06 16:28:51 by vlomakin         ###   ########.fr       */
+/*   Updated: 2024/03/07 16:17:54 by lomakinaval      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
+/*  Gets the current position of the element with the lowest index
+*	within a stack */
 int	find_lowest_pos(t_stack **stack)
 {
 	t_stack	*tmp;
@@ -43,25 +44,14 @@ void	move_a(t_stack **a)
 	lowest_pos = find_lowest_pos(a);
 	if (lowest_pos > len / 2)
 	{
-		printf("Here 1\n");
-		printf("len: %d\n", len);
-		printf("len / 2: %d\n", len / 2);
-		printf("lowest_pos: %d\n", lowest_pos);
 		while (lowest_pos < len)
 		{
 			rra(a);
-			printf("Here 1.1\n");
 			lowest_pos++;
 		}
 	}
 	else
 	{
-		// if (lowest_pos == 0)
-		// 	sa(a);
-		printf("Here 2\n");
-		printf("len: %d\n", len);
-		printf("len / 2: %d\n", len / 2);
-		printf("lowest_pos: %d\n", lowest_pos);
 		while (lowest_pos > 0)
 		{
 			ra(a);

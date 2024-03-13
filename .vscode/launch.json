@@ -2,11 +2,20 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "C/C++: clang build and debug",
+            "name": "4 el",
             "type": "lldb",
             "request": "launch",
             "program": "${cwd}/push_swap",
-            "args": ["1", "2", "5", "-8"],
+            "args": ["4", "3", "2", "1"],
+            "cwd": "${workspaceFolder}",
+            "preLaunchTask": "Make build"
+        },
+        {
+            "name": "5 el",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${cwd}/push_swap",
+            "args": ["4", "3", "2", "1", "0"],
             "cwd": "${workspaceFolder}",
             "preLaunchTask": "Make build"
         },
@@ -15,7 +24,7 @@
             "type": "lldb",
             "request": "launch",
             "program": "${cwd}/push_swap",
-            "args": ["1", "2", "5", "-8", "0"],
+            "args": ["81", "67", "26", "56", "0"],
             "cwd": "${workspaceFolder}",
             "preLaunchTask": "Make build"
         }

@@ -6,7 +6,7 @@
 /*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 18:03:30 by vlomakin          #+#    #+#             */
-/*   Updated: 2024/03/05 12:15:31 by lomakinaval      ###   ########.fr       */
+/*   Updated: 2024/03/08 13:11:50 by lomakinaval      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	perform_sorting(t_stack **a, t_stack **b, char **argv)
 
 	if (argv[0] == NULL)
 		ft_printf("err");
-	fill_stack_a(a, b, argv);
+	fill_stack_a(a, argv);
 	if (!stack_sorted(*a))
 	{
 		len = stack_len(*a);
@@ -27,7 +27,7 @@ void	perform_sorting(t_stack **a, t_stack **b, char **argv)
 		else if (len == 3)
 			sort_three(a);
 		else
-			sort_stacks(a, b, len);
+			sort_stacks(a, b);
 	}
 }
 
@@ -62,12 +62,6 @@ int	main(int argc, char **argv)
 	b = NULL;
 	processed_argv = process_args(argc, argv, &need_free);
 	perform_sorting(&a, &b, processed_argv);
-	t_stack *tmp = a;
-    while(tmp)
-    {
-        printf("final a -> %d ", tmp->num);
-        tmp = tmp->next;
-    }
 	free_stack(&a);
 	free_stack(&b);
 	if (need_free)

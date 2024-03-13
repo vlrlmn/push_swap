@@ -17,6 +17,11 @@ SRC = 	main.c \
 		swap.c \
 		validate_agrs.c \
 		cheapest_move_operations.c \
+		ft_atol.c \
+		0_big_sort_utils.c \
+		0_sort_three.c \
+		0_calc_cost.c \
+		0_init_sort.c \
 
 OBJ = $(SRC:.c=.o)
 

@@ -5,6 +5,15 @@
 		"chrono": "c",
 		"ios": "c",
 		"string": "c",
-		"vector": "c"
+		"vector": "c",
+		"push_swap.h": "c",
+		"__tree": "c",
+		"deque": "c",
+		"memory_resource": "c",
+		"iterator": "c",
+		"list": "c",
+		"locale": "c",
+		"regex": "c",
+		"random": "c"
 	}
 }

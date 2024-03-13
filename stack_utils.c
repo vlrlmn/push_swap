@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 18:03:46 by vlomakin          #+#    #+#             */
-/*   Updated: 2024/03/06 17:25:13 by vlomakin         ###   ########.fr       */
+/*   Updated: 2024/03/11 18:40:56 by lomakinaval      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,9 @@ int	create_node(t_stack **stack, int n)
 	node->insert_position = -1;
 	node->cost_insert_a = -1;
 	node->cost_top_b = -1;
-	node->index = -1;
+	node->index = 0;
+	node->max_num = INT_MAX;
+	node->min_num = INT_MIN;
 	if (!(*stack))
 	{
 		*stack = node;
@@ -82,7 +84,7 @@ int	create_node(t_stack **stack, int n)
 	return (1);
 }
 
-void	fill_stack_a(t_stack **a, t_stack **b, char **argv)
+void	fill_stack_a(t_stack **a, char **argv)
 {
 	long int	n;
 	int			i;
@@ -91,12 +93,12 @@ void	fill_stack_a(t_stack **a, t_stack **b, char **argv)
 	i = 0;
 	while (argv[i])
 	{
-		n = ft_atoi(argv[i]);
+		n = ft_atol(argv[i]);
 		if (n > INT_MAX || n < INT_MIN)
-			free_err(a, b);
+			free_err1(a);
 		node_created = create_node(a, (int)n);
 		if (!node_created)
-			free_err(a, b);
+			free_err1(a);
 		i++;
 	}
 }

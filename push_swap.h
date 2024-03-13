@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 18:03:37 by vlomakin          #+#    #+#             */
-/*   Updated: 2024/03/06 16:20:05 by vlomakin         ###   ########.fr       */
+/*   Updated: 2024/03/12 19:30:46 by lomakinaval      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,17 @@ typedef struct s_stack
 {
 	int				num;
 	int				index;
-	int				push_cost;
 	int				insert_position;
 	int				cur_position;
-	bool			above_median;
 	bool			cheapest;
 	int				cost_insert_a;
 	int				cost_top_b;
+	int				max_num;
+	int				min_num;
+	int				index_of_max;
+	int				index_of_min;
 	struct s_stack	*next;
 	struct s_stack	*prev;
-	struct s_stack	*target_node;
 }					t_stack;
 
 /*Validation*/
@@ -44,13 +45,13 @@ bool				is_double(char **num_arr, char *num, int index);
 bool				is_zero(char *num);
 int					nums_cmp(char *s1, char *s2);
 /*Utils*/
-void				fill_stack_a(t_stack **a, t_stack **b, char **argv);
+void				fill_stack_a(t_stack **a, char **argv);
 int					stack_len(t_stack *stack);
 bool				stack_sorted(t_stack *stack);
-void				get_index(t_stack *a, int stack_len);
+void				get_index(t_stack *a);
+int					ft_atol(char *str);
 /*Sort_algorithm*/
-void				sort_stacks(t_stack **a, t_stack **b, int stack_len);
-void				sort_three(t_stack **a);
+void				sort_stacks(t_stack **a, t_stack **b);
 void				sort_b(t_stack **a, t_stack **b);
 void				move_a(t_stack **a);
 int					find_max(t_stack *stack);
@@ -67,6 +68,7 @@ void				free_err(t_stack **a, t_stack **b);
 void				free_argv(char **processed_argv);
 void				free_stack(t_stack **stack);
 void				exit_with_err(char *msg);
+void				free_err1(t_stack **a);
 /*Operations*/
 void				pb(t_stack **stack_a, t_stack **stack_b);
 void				pa(t_stack **stack_a, t_stack **stack_b);
@@ -82,5 +84,16 @@ void				ra(t_stack **stack_b);
 /*Operation utils*/
 t_stack				*get_stack_bottom(t_stack *stack);
 t_stack				*get_stack_before_bottom(t_stack *stack);
+
+/*New algotithm*/
+/*big_sort_utils*/
+void				define_min_max(t_stack *stack);
+int					is_num_exceed_limits(int number, t_stack **b);
+/*Sort_three*/
+void				sort_three(t_stack **a);
+/*calc_cost*/
+void				set_cost_in_a(t_stack *cur_a_node, int node_a_index, t_stack **b);
+/*Init_sort*/
+void	big_sort(t_stack **a, t_stack **b);
 
 #endif

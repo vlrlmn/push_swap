@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   err_free.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 18:03:26 by vlomakin          #+#    #+#             */
-/*   Updated: 2024/03/04 18:10:17 by vlomakin         ###   ########.fr       */
+/*   Updated: 2024/03/08 13:05:17 by lomakinaval      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,14 @@ void	free_stack(t_stack **stack)
 		cur = next;
 	}
 	*stack = NULL;
+}
+
+void	free_err1(t_stack **a)
+{
+	if (a != NULL && *a != NULL)
+		free_stack(a);
+	ft_putstr_fd("Error\n", STDERR_FILENO);
+	exit(1);
 }
 
 void	free_err(t_stack **a, t_stack **b)

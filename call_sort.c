@@ -3,41 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   call_sort.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 18:03:20 by vlomakin          #+#    #+#             */
-/*   Updated: 2024/03/06 17:15:51 by vlomakin         ###   ########.fr       */
+/*   Updated: 2024/03/12 12:04:21 by lomakinaval      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	sort_three(t_stack **stack)
-{
-    int top;
-    int middle;
-    int bottom;
-
-	top = (*stack)->num;
-	middle  = (*stack)->next->num;
-	bottom = (*stack)->next->next->num;
-    if (top > middle && middle < bottom && top < bottom)
-        sa(stack);
-    else if (top > middle && middle > bottom && top > bottom)
-	{
-        sa(stack);
-        rra(stack);
-    }
-    else if (top > middle && middle < bottom && top > bottom)
-        ra(stack);
-    else if (top < middle && middle > bottom && top < bottom)
-    {
-        sa(stack);
-        ra(stack);
-    }
-    else if (top < middle && middle > bottom && top > bottom)
-        rra(stack);
-}
 
 void	get_position(t_stack **stack)
 {
@@ -79,7 +52,6 @@ int	find_insert_pos(t_stack **a, int b_idx, int *min_pos_idx, int *min_idx)
 	}
 	if (insert_pos == -1 && *min_pos_idx == -1)
         insert_pos = iterator;
-	printf("target position b in a: %d\n", insert_pos);
 	return (insert_pos);
 }
 
@@ -91,6 +63,7 @@ void	find_b_position_in_a(t_stack **a, t_stack **b)
 	int		min_idx;
 
 	cpy_b = *b;
+	result = 0;
 	if (!a || !b)
 		return ;
 	while (cpy_b)
@@ -105,55 +78,14 @@ void	find_b_position_in_a(t_stack **a, t_stack **b)
 	}
 }
 
-
-void	sort_b(t_stack **a, t_stack **b)
-{
-	while (*b)
-	{
-		get_position(a);
-		t_stack *tmp = *a;
-		while(tmp)
-		{
-			printf("num a: %d\n", tmp->num);
-			printf("cur position a: %d\n", tmp->cur_position);
-			printf("index a: %d\n", (*a)->index);
-			tmp = tmp->next;
-		}
-		get_position(b);
-		tmp = *b;
-		while(tmp)
-		{
-			printf("num b: %d\n", tmp->num);
-			printf("cur position b: %d\n", tmp->cur_position);
-			printf("index b: %d\n", (*b)->index);
-			tmp = tmp->next;
-		}
-		find_b_position_in_a(a, b);
-		get_cost(a, b);
-		tmp = *a;
-		// while(tmp)
-		// {
-		// 	printf("cost a: %d\n", tmp->cost_top_b);
-		// 	tmp = tmp->next;
-		// }
-		// tmp = *b;
-		// while(tmp)
-		// {
-		// 	printf("cost b: %d\n", tmp->cost_insert_a);
-		// 	tmp = tmp->next;
-		// }
-		do_cheapest_move(a, b);
-	// 	tmp = *a;
-	// 	while(tmp)
-	// 	{
-	// 		printf("cheapest move a: %d\n", tmp->num);
-	// 		tmp = tmp->next;
-	// 	}
-	// 	tmp = *b;
-	// 	while(tmp)
-	// 	{
-	// 		printf("cheapest move b: %d\n", tmp->num);
-	// 		tmp = tmp->next;
-	// 	}
-	}
-}
+// void	sort_b(t_stack **a, t_stack **b)
+// {
+// 	while (*b)
+// 	{
+// 		get_position(a);
+// 		get_position(b);
+// 		find_b_position_in_a(a, b);
+// 		get_cost(a, b);
+// 		do_cheapest_move(a, b);
+// 	}
+// }

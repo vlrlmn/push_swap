@@ -3,96 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   start_sort_algorithm.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 18:03:48 by vlomakin          #+#    #+#             */
-/*   Updated: 2024/03/06 17:24:54 by vlomakin         ###   ########.fr       */
+/*   Updated: 2024/03/12 18:14:10 by lomakinaval      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	save_index(t_stack *a, int value, t_stack *ptr, t_stack **highest)
-{
-	while (ptr)
-	{
-		if (ptr->num == INT_MIN && ptr->index == 0)
-			ptr->index = 1;
-		if (ptr->num > value && ptr->index == 0)
-		{
-			value = ptr->num;
-			*highest = ptr;
-			ptr = a;
-		}
-		else
-			ptr = ptr->next;
-	}
-}
+// void get_index(t_stack *a) {
 
-void	get_index(t_stack *a, int stack_len)
-{
-	t_stack	*highest;
-	t_stack	*ptr;
-	int		value;
+//     t_stack *current, *iterator;
 
-	if (!a)
-		return ;
-	while (stack_len > 0)
-	{
-		ptr = a;
-		value = INT_MIN;
-		highest = NULL;
-		save_index(a, value, ptr, &highest);
-		stack_len--;
-		if (highest != NULL)
-			a->index = stack_len;
-	}
-}
+//     for (current = a; current != NULL; current = current->next) {
+//         int greater = 0;
+//         for (iterator = a; iterator != NULL; iterator = iterator->next) {
+//             if (current->num > iterator->num) {
+//                 greater++;
+//             }
+//         }
+//         current->index = greater;
+//     }
+// }
 
-void	push_to_three(t_stack **a, t_stack **b)
-{
-	int	pushed;
-	int	middle;
-	int	i;
-	int len;
 
-	pushed = 0;
-	i = 0;
-	len = stack_len(*a);
-	middle = len / 2;
-	while (len > 6 && i < len && pushed < middle)
-	{
-		if ((*a)->index <= middle)
-		{
-			pb(a, b);
-			pushed++;
-		}
-		else
-			ra(a);
-		i++;
-	}
-	while (len - pushed > 3)
-	{
-		pb(a, b);
-		pushed++;
-	}
-}
+// void	sort_stacks(t_stack **a, t_stack **b)
+// {
+// 	get_index(*a);
+// 	push_to_three(a, b);
+// 	sort_three(a);
+// 	sort_b(a, b);
+// 	if (!stack_sorted(*a))
+// 		move_a(a);
+// }
 
-void	sort_stacks(t_stack **a, t_stack **b, int stack_len)
-{
-	get_index(*a, stack_len);
-	t_stack	*tmp = *a;
-	while(tmp)
-	{
-		printf("index a: %d\n", tmp->index);
-		tmp = tmp->next;
-	}
-	push_to_three(a, b);
-	sort_three(a);
-	sort_b(a, b);
-	if (!stack_sorted(*a))
-	{
-		printf("not sorted\n");
-		move_a(a);
-	}
-}
