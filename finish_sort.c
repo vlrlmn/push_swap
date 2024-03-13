@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
 /*  Gets the current position of the element with the lowest index
 *	within a stack */
 int	find_lowest_pos(t_stack **stack)
@@ -37,8 +38,8 @@ int	find_lowest_pos(t_stack **stack)
 
 void	move_a(t_stack **a)
 {
-	int		len;
-	int		lowest_pos;
+	int	len;
+	int	lowest_pos;
 
 	len = stack_len(*a);
 	lowest_pos = find_lowest_pos(a);

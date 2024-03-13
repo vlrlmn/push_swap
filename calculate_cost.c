@@ -12,7 +12,6 @@
 
 #include "push_swap.h"
 
-
 void	calculate_cost_b(t_stack *b, int len_b)
 {
 	b->cost_top_b = b->cur_position;

@@ -27,7 +27,6 @@
 //     }
 // }
 
-
 // void	sort_stacks(t_stack **a, t_stack **b)
 // {
 // 	get_index(*a);
@@ -37,4 +36,3 @@
 // 	if (!stack_sorted(*a))
 // 		move_a(a);
 // }
-

@@ -30,7 +30,7 @@ t_stack	*get_stack_bottom(t_stack *stack)
 
 int	find_max(t_stack *stack)
 {
-	int		index;
+	int	index;
 
 	index = stack->index;
 	while (stack)

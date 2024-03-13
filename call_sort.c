@@ -51,7 +51,7 @@ int	find_insert_pos(t_stack **a, int b_idx, int *min_pos_idx, int *min_idx)
 		iterator++;
 	}
 	if (insert_pos == -1 && *min_pos_idx == -1)
-        insert_pos = iterator;
+		insert_pos = iterator;
 	return (insert_pos);
 }
 

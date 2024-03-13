@@ -1,27 +1,39 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   0_big_sort_utils.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/13 12:52:48 by vlomakin          #+#    #+#             */
+/*   Updated: 2024/03/13 12:52:49 by vlomakin         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-int is_num_exceed_limits(int number, t_stack **b)
+int	is_num_exceed_limits(int number, t_stack **b)
 {
-    return ((number > (*b)->max_num) || (number < (*b)->min_num));
+	return ((number > (*b)->max_num) || (number < (*b)->min_num));
 }
 
-void define_min_max(t_stack *stack)
+void	define_min_max(t_stack *stack)
 {
-    get_position(stack);
+	get_position(stack);
 	stack->min_num = stack->num;
 	stack->max_num = stack->num;
 	while (stack)
 	{
 		if (stack->num > stack->max_num)
-        {
-            stack->index_of_max = stack->cur_position;
+		{
+			stack->index_of_max = stack->cur_position;
 			stack->max_num = stack->num;
-        }
+		}
 		else if (stack->num < stack->min_num)
-        {
-            stack->index_of_min = stack->cur_position;
+		{
+			stack->index_of_min = stack->cur_position;
 			stack->min_num = stack->num;
-        }
+		}
 		stack = stack->next;
 	}
 }
