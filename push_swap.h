@@ -6,7 +6,7 @@
 /*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 18:03:37 by vlomakin          #+#    #+#             */
-/*   Updated: 2024/03/12 19:30:46 by lomakinaval      ###   ########.fr       */
+/*   Updated: 2024/03/14 17:55:03 by lomakinaval      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,17 @@ typedef struct s_stack
 	int				index;
 	int				insert_position;
 	int				cur_position;
-	bool			cheapest;
-	int				cost_insert_a;
-	int				cost_top_b;
 	int				max_num;
 	int				min_num;
 	int				index_of_max;
 	int				index_of_min;
+	int				cost_to_push_a;
+	int				a_rotations;
+	int				b_rotations;
+	int				double_rotations;
 	struct s_stack	*next;
 	struct s_stack	*prev;
+	struct s_stack	*cheapest;
 }					t_stack;
 
 /*Validation*/
@@ -48,21 +50,11 @@ int					nums_cmp(char *s1, char *s2);
 void				fill_stack_a(t_stack **a, char **argv);
 int					stack_len(t_stack *stack);
 bool				stack_sorted(t_stack *stack);
-void				get_index(t_stack *a);
 int					ft_atol(char *str);
 /*Sort_algorithm*/
-void				sort_stacks(t_stack **a, t_stack **b);
-void				sort_b(t_stack **a, t_stack **b);
-void				move_a(t_stack **a);
 int					find_max(t_stack *stack);
 void				get_position(t_stack **stack);
-/*Cost and cheapest move*/
-void				do_cheapest_move(t_stack **a, t_stack **b);
-void				get_cost(t_stack **a, t_stack **b);
-void				do_rb(t_stack **b, int *cost);
-void				do_ra(t_stack **a, int *cost);
-void				do_rrr(t_stack **a, t_stack **b, int *cost_a, int *cost_b);
-void				do_rr(t_stack **a, t_stack **b, int *cost_a, int *cost_b);
+
 /*Free or return error*/
 void				free_err(t_stack **a, t_stack **b);
 void				free_argv(char **processed_argv);
@@ -92,8 +84,12 @@ int					is_num_exceed_limits(int number, t_stack **b);
 /*Sort_three*/
 void				sort_three(t_stack **a);
 /*calc_cost*/
-void				set_cost_in_a(t_stack *cur_a_node, int node_a_index, t_stack **b);
+void				set_cost_in_a(t_stack *a, t_stack **b);
 /*Init_sort*/
 void	big_sort(t_stack **a, t_stack **b);
+void ra_rb_pb(t_stack **a, t_stack **b, t_stack *cheapest);
+void ra_pb(t_stack **a, t_stack **b, t_stack *cheapest);
+void rb_pb(t_stack **a, t_stack **b, t_stack *cheapest);
 
+void	set_cost_in_a(t_stack *a, t_stack **b);
 #endif

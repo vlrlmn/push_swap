@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_utils.c                                      :+:      :+:    :+:   */
+/*   0_stack_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 18:03:46 by vlomakin          #+#    #+#             */
-/*   Updated: 2024/03/11 18:40:56 by lomakinaval      ###   ########.fr       */
+/*   Updated: 2024/03/14 18:06:11 by lomakinaval      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,9 @@ int	create_node(t_stack **stack, int n)
 	node->num = n;
 	node->cur_position = -1;
 	node->insert_position = -1;
-	node->cost_insert_a = -1;
-	node->cost_top_b = -1;
+	node->cost_to_push_a = -1;
+	node->a_rotations = 0;
+	node->b_rotations = 0;
 	node->index = 0;
 	node->max_num = INT_MAX;
 	node->min_num = INT_MIN;

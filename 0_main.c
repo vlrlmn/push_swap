@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   0_main.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 18:03:30 by vlomakin          #+#    #+#             */
-/*   Updated: 2024/03/08 13:11:50 by lomakinaval      ###   ########.fr       */
+/*   Updated: 2024/03/14 18:07:03 by lomakinaval      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	perform_sorting(t_stack **a, t_stack **b, char **argv)
 		else if (len == 3)
 			sort_three(a);
 		else
-			sort_stacks(a, b);
+			big_sort(a, b);
 	}
 }
 
@@ -62,6 +62,16 @@ int	main(int argc, char **argv)
 	b = NULL;
 	processed_argv = process_args(argc, argv, &need_free);
 	perform_sorting(&a, &b, processed_argv);
+	while(a)
+	{
+		printf("a: %d\n", a->num);
+		a = a->next;
+	}
+	while(b)
+	{
+		printf("b: %d\n", b->num);
+		b = b->next;
+	}
 	free_stack(&a);
 	free_stack(&b);
 	if (need_free)

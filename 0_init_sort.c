@@ -3,73 +3,55 @@
 /*                                                        :::      ::::::::   */
 /*   0_init_sort.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lomakinode_avaleria <lomakinode_avaleria@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 12:52:53 by vlomakin          #+#    #+#             */
-/*   Updated: 2024/03/13 16:29:45 by vlomakin         ###   ########.fr       */
+/*   Updated: 2024/03/14 13:03:00 by lomakinode_aval      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	*find_cheapest(t_stack **a)
+void	find_cheapest(t_stack **a)
 {
 	t_stack	*node_a;
-	t_stack	*cheapest;
 
 	node_a = *a;
-	cheapest = node_a;
 	while (node_a)
 	{
-		if (node_a->next && node_a->cost_insert_a > node_a->next->cost_insert_a)
+		if (node_a->next && node_a->cost_to_push_a > node_a->next->cost_to_push_a)
 		{
-			cheapest = node_a->next;
+			node_a->cheapest = node_a->next;
 			break ;
 		}
 		node_a = node_a->next;
 	}
-	return (cheapest);
 }
 
-void	set_insert_position(t_stack *src, t_stack **dst)
+void	push_node(t_stack *a, t_stack **b, t_stack *a_cheapest)
 {
-	t_stack	*dst_node;
-
-	dst_node = *dst;
-	while (dst_node)
-	{
-		if (src->num > dst_node->max_num || src->num < dst_node->min_num)
-			src->insert_position = 0;
-		else if (dst_node->next && src->num < dst_node->num
-				&& src->num > dst_node->next->num)
-			src->insert_position = dst_node->next->cur_position;
-		dst_node = dst_node->next;
-	}
-}
-void	push_node(t_stack *src, t_stack **dst)
-{
-	if(is_num_exceed_limits(src->num, dst) && )
-	{
-	}
+    if(a->a_rotations == 0 && a->b_rotations == 0)
+        pb(&a, b);
+    if(a->a_rotations && a->b_rotations == 0)
+        ra_pb(&a, b, a_cheapest);
+    if(a->a_rotations == 0 && a->b_rotations)
+        rb_pb(&a, b, a_cheapest);
+	if (a->a_rotations && a->b_rotations)
+        ra_rb_pb(&a, b, a_cheapest);
 }
 
 void	push_to_b(t_stack **a, t_stack **b)
 {
-	t_stack	*current_a_node;
-	t_stack	*cheapest;
-	int		index;
+	t_stack	*node_a;
 
-	index = 0;
-	current_a_node = *a;
-	while (current_a_node)
+	node_a = *a;
+	while(node_a)
 	{
-		set_cost_in_a(current_a_node, index, b);
-		current_a_node = current_a_node->next;
-		index++;
+		set_cost_in_a(node_a, b);
+		find_cheapest(a);
+		push_node((*a), b, (*a)->cheapest);
+		node_a = node_a->next;
 	}
-	cheapest = find_cheapest(a);
-	set_insert_position(cheapest, b);
-	push_node(cheapest, b);
 }
 
 void	push_a_to_b(t_stack **a, t_stack **b)
@@ -85,7 +67,18 @@ void	push_a_to_b(t_stack **a, t_stack **b)
 		sort_three(a);
 }
 
+void push_back(t_stack **a, t_stack **b)
+{
+	t_stack *b_node = *b;
+	while(b_node)
+	{
+		pb(a, b);
+		b_node = b_node->next;
+	}
+}
+
 void	big_sort(t_stack **a, t_stack **b)
 {
 	push_a_to_b(a, b);
+	push_back(a, b);
 }

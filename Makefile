@@ -2,26 +2,21 @@ NAME = push_swap
 
 CC = cc -Wall -Wextra -Werror -fsanitize=address --debug
 
-SRC = 	main.c \
-		start_sort_algorithm.c \
-		call_sort.c \
-		finish_sort.c \
-		calculate_cost.c \
-		do_cheapest_move.c \
-		err_free.c \
-		operations_utils.c \
-		push.c \
-		rev_rotate.c \
-		rotate.c \
-		stack_utils.c \
-		swap.c \
-		validate_agrs.c \
-		cheapest_move_operations.c \
-		ft_atol.c \
+SRC = 	0_main.c \
+		0_err_free.c \
+		0_operations_utils.c \
+		0_push.c \
+		0_rev_rotate.c \
+		0_rotate.c \
+		0_stack_utils.c \
+		0_swap.c \
+		0_validate_agrs.c \
+		0_ft_atol.c \
 		0_big_sort_utils.c \
 		0_sort_three.c \
 		0_calc_cost.c \
 		0_init_sort.c \
+		0_push_operations.c \
 
 OBJ = $(SRC:.c=.o)
 

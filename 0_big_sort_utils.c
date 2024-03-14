@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   0_big_sort_utils.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 12:52:48 by vlomakin          #+#    #+#             */
-/*   Updated: 2024/03/13 12:52:49 by vlomakin         ###   ########.fr       */
+/*   Updated: 2024/03/14 17:47:28 by lomakinaval      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	is_num_exceed_limits(int number, t_stack **b)
 
 void	define_min_max(t_stack *stack)
 {
-	get_position(stack);
+	get_position(&stack);
 	stack->min_num = stack->num;
 	stack->max_num = stack->num;
 	while (stack)
