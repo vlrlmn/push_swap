@@ -14,6 +14,8 @@
 		"list": "c",
 		"locale": "c",
 		"regex": "c",
-		"random": "c"
+		"random": "c",
+		"*.tcc": "c",
+		"bitset": "c"
 	}
 }

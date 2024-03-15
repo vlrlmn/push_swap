@@ -6,7 +6,7 @@
 /*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 12:52:44 by vlomakin          #+#    #+#             */
-/*   Updated: 2024/03/14 17:45:37 by lomakinaval      ###   ########.fr       */
+/*   Updated: 2024/03/15 15:37:17 by lomakinaval      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,23 +38,31 @@ int	if_not_exceed_limits(t_stack **b_stack, t_stack *a, int a_rots)
 {
 	t_stack *b = *b_stack;
 	int	operations_count;
-	int	double_rotations;
+	int found_bigger;
 
 	a->b_rotations = 0;
 	operations_count = a_rots + 1;
+	found_bigger = 0;
 	while (b)
 	{
-		if (b->next && a->num > b->num
-			&& a->num < b->next->num)
+		if (a->num < b->num)
 		{
-			operations_count += a->b_rotations;
-			break ;
+			found_bigger = 1;
+
+			if (!b)
+			{
+				a->b_rotations = 0;
+				break;
+			}
 		}
+		else if (a->num > b->num && found_bigger == 1)
+			break;
+
 		a->b_rotations++;
 		b = b->next;
 	}
-	double_rotations = double_rots(a->b_rotations, a_rots);
-	operations_count -= double_rotations;
+	a->double_rotations = double_rots(a->b_rotations, a_rots);
+	operations_count += a->b_rotations - a->double_rotations;
 	return (operations_count);
 }
 

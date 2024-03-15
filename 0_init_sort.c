@@ -15,42 +15,49 @@
 void	find_cheapest(t_stack **a)
 {
 	t_stack	*node_a;
+    t_stack	*head_a;
 
 	node_a = *a;
+	head_a = *a;
+	head_a->cheapest = node_a;
 	while (node_a)
 	{
-		if (node_a->next && node_a->cost_to_push_a > node_a->next->cost_to_push_a)
+		if (node_a->next && head_a->cheapest->cost_to_push_a > node_a->next->cost_to_push_a)
 		{
-			node_a->cheapest = node_a->next;
+			head_a->cheapest = node_a->next;
 			break ;
 		}
 		node_a = node_a->next;
 	}
 }
 
-void	push_node(t_stack *a, t_stack **b, t_stack *a_cheapest)
+void	push_node(t_stack **a, t_stack **b)
 {
-    if(a->a_rotations == 0 && a->b_rotations == 0)
-        pb(&a, b);
-    if(a->a_rotations && a->b_rotations == 0)
-        ra_pb(&a, b, a_cheapest);
-    if(a->a_rotations == 0 && a->b_rotations)
-        rb_pb(&a, b, a_cheapest);
-	if (a->a_rotations && a->b_rotations)
-        ra_rb_pb(&a, b, a_cheapest);
+    t_stack *a_cheapest;
+
+	a_cheapest = (*a)->cheapest;
+	if(a_cheapest->a_rotations == 0 && a_cheapest->b_rotations == 0)
+        pb(a, b);
+    else if(a_cheapest->a_rotations && a_cheapest->b_rotations == 0)
+        ra_pb(a, b, a_cheapest);
+    else if(a_cheapest->a_rotations == 0 && a_cheapest->b_rotations)
+        rb_pb(a, b, a_cheapest);
+	else if (a_cheapest->a_rotations && a_cheapest->b_rotations)
+        ra_rb_pb(a, b, a_cheapest);
 }
 
 void	push_to_b(t_stack **a, t_stack **b)
 {
-	t_stack	*node_a;
+	t_stack	*head_a;
 
-	node_a = *a;
-	while(node_a)
+	head_a = *a;
+	while(head_a)
 	{
-		set_cost_in_a(node_a, b);
+		define_min_max(*b);
+		set_cost_in_a(head_a, b);
 		find_cheapest(a);
-		push_node((*a), b, (*a)->cheapest);
-		node_a = node_a->next;
+		push_node(a, b);
+		head_a = *a;
 	}
 }
 
@@ -60,25 +67,19 @@ void	push_a_to_b(t_stack **a, t_stack **b)
 		pb(a, b);
 	if (stack_len(*a) > 3 && !stack_sorted(*a))
 		pb(a, b);
-	define_min_max(*b);
-	if (stack_len(*a) > 3 && !stack_sorted(*a))
+	if (stack_len(*a) >= 3 && !stack_sorted(*a))
 		push_to_b(a, b);
 	if (!stack_sorted(*a))
 		sort_three(a);
 }
 
-void push_back(t_stack **a, t_stack **b)
-{
-	t_stack *b_node = *b;
-	while(b_node)
-	{
-		pb(a, b);
-		b_node = b_node->next;
-	}
-}
 
 void	big_sort(t_stack **a, t_stack **b)
 {
 	push_a_to_b(a, b);
-	push_back(a, b);
+	while(*b)
+		pa(a, b);
+	while(!stack_sorted(*a))
+		ra(a);
 }
+

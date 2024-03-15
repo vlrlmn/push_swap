@@ -1,6 +1,16 @@
 {
     "version": "0.2.0",
     "configurations": [
+    
+        {
+            "name": "Article input",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${cwd}/push_swap",
+            "args": ["5", "2", "7", "1", "6", "3", "9", "4", "8"],
+            "cwd": "${workspaceFolder}",
+            "preLaunchTask": "Make build"
+        },
         {
             "name": "4 el",
             "type": "lldb",

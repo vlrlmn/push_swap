@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   0_push.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 18:03:39 by vlomakin          #+#    #+#             */
-/*   Updated: 2024/03/04 19:29:59 by vlomakin         ###   ########.fr       */
+/*   Updated: 2024/03/15 13:23:47 by lomakinaval      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	push(t_stack **src, t_stack **dst)
 	if (*src == NULL)
 		return ;
 	tmp = (*src)->next;
+
 	(*src)->next = *dst;
 	*dst = *src;
 	*src = tmp;
