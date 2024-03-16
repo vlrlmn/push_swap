@@ -16,6 +16,15 @@
 		"regex": "c",
 		"random": "c",
 		"*.tcc": "c",
-		"bitset": "c"
+		"bitset": "c",
+		"charconv": "c",
+		"format": "c",
+		"span": "c",
+		"string_view": "c",
+		"variant": "c",
+		"array": "c",
+		"functional": "c",
+		"mutex": "c",
+		"tuple": "c"
 	}
 }

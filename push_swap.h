@@ -6,7 +6,7 @@
 /*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 18:03:37 by vlomakin          #+#    #+#             */
-/*   Updated: 2024/03/15 12:14:22 by lomakinaval      ###   ########.fr       */
+/*   Updated: 2024/03/15 18:16:14 by lomakinaval      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@
 typedef struct s_stack
 {
 	int				num;
-	int				index;
-	int				insert_position;
 	int				cur_position;
 	int				max_num;
 	int				min_num;
@@ -52,7 +50,6 @@ int					stack_len(t_stack *stack);
 bool				stack_sorted(t_stack *stack);
 int					ft_atol(char *str);
 /*Sort_algorithm*/
-int					find_max(t_stack *stack);
 void				get_position(t_stack **stack);
 
 /*Free or return error*/

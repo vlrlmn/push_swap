@@ -6,7 +6,7 @@
 /*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 18:03:34 by vlomakin          #+#    #+#             */
-/*   Updated: 2024/03/14 17:38:43 by lomakinaval      ###   ########.fr       */
+/*   Updated: 2024/03/15 18:10:45 by lomakinaval      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,18 +43,4 @@ t_stack	*get_stack_bottom(t_stack *stack)
 		stack = stack->next;
 	}
 	return (stack);
-}
-
-int	find_max(t_stack *stack)
-{
-	int	index;
-
-	index = stack->index;
-	while (stack)
-	{
-		if (stack->index > index)
-			index = stack->index;
-		stack = stack->next;
-	}
-	return (index);
 }

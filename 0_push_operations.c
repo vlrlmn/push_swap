@@ -50,6 +50,6 @@ void ra_rb_pb(t_stack **a, t_stack **b, t_stack *cheapest)
     if(a_rot > 0 && b_rot == 0)
         make_ra(a, cheapest->a_rotations);
     else if (a_rot == 0 && b_rot)
-        make_rb(b, cheapest->b_rotations);
+        make_rb(b, b_rot);
     pb(a, b);
 }

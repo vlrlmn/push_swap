@@ -6,7 +6,7 @@
 /*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 12:52:44 by vlomakin          #+#    #+#             */
-/*   Updated: 2024/03/15 15:37:17 by lomakinaval      ###   ########.fr       */
+/*   Updated: 2024/03/16 12:47:36 by lomakinaval      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	if_not_exceed_limits(t_stack **b_stack, t_stack *a, int a_rots)
 		{
 			found_bigger = 1;
 
-			if (!b)
+			if (!(b->next))
 			{
 				a->b_rotations = 0;
 				break;
