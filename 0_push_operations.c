@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-void make_ra(t_stack **a, int iterator)
+void do_ra(t_stack **a, int iterator)
 {
     while(iterator)
     {
@@ -9,25 +9,13 @@ void make_ra(t_stack **a, int iterator)
     }
 }
 
-void make_rb(t_stack **b, int iterator)
+void do_rb(t_stack **b, int iterator)
 {
     while(iterator)
     {
         rb(b);
         iterator--;
     }
-}
-
-void rb_pb(t_stack **a, t_stack **b, t_stack *cheapest)
-{
-    make_rb(b, cheapest->b_rotations);
-    pb(a, b);
-}
-
-void ra_pb(t_stack **a, t_stack **b, t_stack *cheapest)
-{
-    make_ra(a, cheapest->a_rotations);
-    pb(a, b);
 }
 
 void ra_rb_pb(t_stack **a, t_stack **b, t_stack *cheapest)
@@ -48,8 +36,8 @@ void ra_rb_pb(t_stack **a, t_stack **b, t_stack *cheapest)
         }
     }
     if(a_rot > 0 && b_rot == 0)
-        make_ra(a, cheapest->a_rotations);
+        do_ra(a, cheapest->a_rotations);
     else if (a_rot == 0 && b_rot)
-        make_rb(b, b_rot);
+        do_rb(b, b_rot);
     pb(a, b);
 }

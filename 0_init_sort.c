@@ -63,14 +63,24 @@ void	print_both(t_stack **a, t_stack **b, int print_head)
 		{
 			cheapest = node_a->cheapest;
 			printf("cheapest:\n");
-			printf("num    a_rot   b_rot   doubble_rot\n");
-			printf("%d       %d        %d          %d\n\n", cheapest->num, cheapest->a_rotations, cheapest->b_rotations, cheapest->double_rotations);
+			printf("num    a_rot   b_rot   doubble_rot    a_rev   b_rev   doubble_rev\n");
+			printf("%d       %d        %d          %d       %d        %d          %d\n\n",
+			 cheapest->num,
+			cheapest->a_rotations,
+			cheapest->b_rotations,
+			cheapest->double_rotations,
+			cheapest->a_rev_rotations,
+			cheapest->b_rev_rotations,
+			cheapest->double_rev_rotations);
 		}
 
 		if (node_b)
 		{
 			printf("b min       index of min         b max   index of max\n");
-			printf("%d              %d                 %d           %d\n", node_b->min_num, node_b->index_of_min, node_b->max_num, node_b->index_of_max);
+			printf("%d              %d                 %d           %d\n",
+			 node_b->min_num,
+			  node_b->index_of_min,
+			   node_b->max_num, node_b->index_of_max);
 		}
 	}
 
@@ -103,17 +113,25 @@ void	push_node(t_stack **a, t_stack **b)
     t_stack *a_cheapest;
 
 	a_cheapest = (*a)->cheapest;
-	if(a_cheapest->a_rotations == 0 && a_cheapest->b_rotations == 0)
-        pb(a, b);
-    else if(a_cheapest->a_rotations && a_cheapest->b_rotations == 0)
-        ra_pb(a, b, a_cheapest);
-    else if(a_cheapest->a_rotations == 0 && a_cheapest->b_rotations)
-        rb_pb(a, b, a_cheapest);
-	else if (a_cheapest->a_rotations && a_cheapest->b_rotations)
-        ra_rb_pb(a, b, a_cheapest);
+	if (a_cheapest->double_rotations)
+		ra_rb_pb(a, b, a_cheapest);	
+	else if (a_cheapest->double_rev_rotations)
+		rra_rrb_pb(a, b, a_cheapest);
+	else
+	{
+		if (a_cheapest->a_rotations)
+			do_ra(a, a_cheapest->a_rotations);
+		if (a_cheapest->b_rotations)
+			do_rb(b, a_cheapest->b_rotations);
+		if (a_cheapest->a_rev_rotations)
+			do_rra(a, a_cheapest->a_rev_rotations);
+		if (a_cheapest->b_rev_rotations)
+			do_rrb(b, a_cheapest->b_rev_rotations);
+		pb(a, b);
+	}
 }
 
-void	push_to_b(t_stack **a, t_stack **b)
+void	push_a_to_b(t_stack **a, t_stack **b)
 {
 	t_stack	*head_a;
 
@@ -130,25 +148,19 @@ void	push_to_b(t_stack **a, t_stack **b)
 	}
 }
 
-void	push_a_to_b(t_stack **a, t_stack **b)
+void	big_sort(t_stack **a, t_stack **b)
 {
 	if (stack_len(*a) > 3 && !stack_sorted(*a))
 		pb(a, b);
 	if (stack_len(*a) > 3 && !stack_sorted(*a))
 		pb(a, b);
 	if (stack_len(*a) >= 3 && !stack_sorted(*a))
-		push_to_b(a, b);
+		push_a_to_b(a, b);
 	if (!stack_sorted(*a))
 		sort_three(a);
-}
-
-
-void	big_sort(t_stack **a, t_stack **b)
-{
-	push_a_to_b(a, b);
 	while(*b)
 		pa(a, b);
-	while(!stack_sorted(*a))
-		ra(a);
+	// while(!stack_sorted(*a))
+	// 	ra(a);
 }
 

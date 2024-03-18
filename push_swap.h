@@ -6,7 +6,7 @@
 /*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 18:03:37 by vlomakin          #+#    #+#             */
-/*   Updated: 2024/03/15 18:16:14 by lomakinaval      ###   ########.fr       */
+/*   Updated: 2024/03/18 15:42:29 by lomakinaval      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,12 @@ typedef struct s_stack
 	int				cost_to_push_a;
 	int				a_rotations;
 	int				b_rotations;
+	int             a_rev_rotations;
+    int             b_rev_rotations;
 	int				double_rotations;
+	int				double_rev_rotations;
 	struct s_stack	*next;
-	struct s_stack	*prev;
+	// struct s_stack	*prev;
 	struct s_stack	*cheapest;
 }					t_stack;
 
@@ -85,8 +88,15 @@ void				set_cost_in_a(t_stack *a, t_stack **b);
 /*Init_sort*/
 void	big_sort(t_stack **a, t_stack **b);
 void ra_rb_pb(t_stack **a, t_stack **b, t_stack *cheapest);
-void ra_pb(t_stack **a, t_stack **b, t_stack *cheapest);
-void rb_pb(t_stack **a, t_stack **b, t_stack *cheapest);
-
+void rra_rrb_pb(t_stack **a, t_stack **b, t_stack *cheapest);
+void do_rb(t_stack **b, int iterator);
+void do_ra(t_stack **a, int iterator);
+void do_rra(t_stack **a, int iterator);
+void do_rrb(t_stack **a, int iterator);
 void	set_cost_in_a(t_stack *a, t_stack **b);
+/*Set rotation instructions*/
+void rev_rev_instruction(t_stack *a, int rev_rev_count);
+void rev_rot_instruction(t_stack *a, int rev_rot_count);
+void rot_rev_instruction(t_stack *a, int rot_rev_count);
+void rot_rot_instruction(t_stack *a, int rot_rot_count);
 #endif

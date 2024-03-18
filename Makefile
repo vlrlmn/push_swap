@@ -17,6 +17,8 @@ SRC = 	0_main.c \
 		0_calc_cost.c \
 		0_init_sort.c \
 		0_push_operations.c \
+		0_set_rot_instructions.c \
+		0_push_rev_operations.c \
 
 OBJ = $(SRC:.c=.o)
 

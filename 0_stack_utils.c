@@ -6,7 +6,7 @@
 /*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 18:03:46 by vlomakin          #+#    #+#             */
-/*   Updated: 2024/03/15 18:16:04 by lomakinaval      ###   ########.fr       */
+/*   Updated: 2024/03/16 13:58:28 by lomakinaval      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,13 +72,13 @@ int	create_node(t_stack **stack, int n)
 	if (!(*stack))
 	{
 		*stack = node;
-		node->prev = NULL;
+		// node->prev = NULL;
 	}
 	else
 	{
 		last_node = find_last(*stack);
 		last_node->next = node;
-		node->prev = last_node;
+		// node->prev = last_node;
 	}
 	return (1);
 }
