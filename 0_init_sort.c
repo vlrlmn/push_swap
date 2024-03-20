@@ -141,9 +141,9 @@ void	push_a_to_b(t_stack **a, t_stack **b)
 		define_min_max(*b);
 		set_cost_in_a(head_a, b);
 		find_cheapest(a);
-		print_both(a, b, 1);
+		// print_both(a, b, 1);
 		push_node(a, b);
-		print_both(a, b, 0);
+		// print_both(a, b, 0);
 		head_a = *a;
 	}
 }
@@ -151,21 +151,25 @@ void	push_a_to_b(t_stack **a, t_stack **b)
 int get_target_index_in(t_stack **a, int num)
 {
 	t_stack *stack;
-	int target_index;
-	
-	stack = *a;
-	target_index = 0;
-	while (stack)
-	{
-		if (num < stack->num)
-		{
-	        return(target_index);
-		}
+    int index = 0;
+    int target_index = 0;
+    int diff;
+    int current_diff;
 
-		target_index++;
-		stack = stack->next;
-	}
-	return (target_index);
+    stack = *a;
+	diff = INT_MAX;
+    while (stack)
+    {
+		current_diff = stack->num - num;
+        if (current_diff > 0 && current_diff < diff)
+        {
+            target_index = index;
+            diff = current_diff;
+        }
+        index++;
+        stack = stack->next;
+    }
+    return target_index;
 }
 
 int get_target_index(t_stack **a, int num)
@@ -202,7 +206,7 @@ void push_b_to_a(t_stack **a, t_stack **b)
 			do_ra(a, target_index);
 			pa(a, b);
 		}
-		print_both(a, b, 0);
+		// print_both(a, b, 0);
 		head_b = *b;
 	}
 }
