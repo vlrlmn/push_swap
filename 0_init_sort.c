@@ -218,14 +218,14 @@ void	big_sort(t_stack **a, t_stack **b)
 	if (!stack_sorted(*a))
 		sort_three(a);
 	push_b_to_a(a, b);
-	// if(!stack_sorted(*a))
-	// {
-	// 	define_min_max(*a);
-	// 	get_position(a);
-	// 	if ((*a)->index_of_min > (stack_len(*a) / 2))
-	// 		do_ra(a, (*a)->index_of_min);
-	// 	else
-	// 		do_rra(a, stack_len(*a) - ((*a)->cur_position - 1));
-	// }
+	if(!stack_sorted(*a))
+	{
+		define_min_max(*a);
+		get_position(a);
+		if ((*a)->index_of_min < (stack_len(*a) / 2))
+			do_ra(a, (*a)->index_of_min);
+		else
+			do_rra(a, stack_len(*a) - (*a)->index_of_min);
+	}
 }
 
