@@ -136,7 +136,7 @@ void	push_a_to_b(t_stack **a, t_stack **b)
 	t_stack	*head_a;
 
 	head_a = *a;
-	while(head_a)
+	while(head_a && stack_len(head_a) > 3)
 	{
 		define_min_max(*b);
 		set_cost_in_a(head_a, b);
@@ -145,6 +145,65 @@ void	push_a_to_b(t_stack **a, t_stack **b)
 		push_node(a, b);
 		print_both(a, b, 0);
 		head_a = *a;
+	}
+}
+
+int get_target_index_in(t_stack **a, int num)
+{
+	t_stack *stack;
+	int target_index;
+	
+	stack = *a;
+	target_index = 0;
+	while (stack)
+	{
+		if (num < stack->num)
+		{
+	        return(target_index);
+		}
+
+		target_index++;
+		stack = stack->next;
+	}
+	return (target_index);
+}
+
+int get_target_index(t_stack **a, int num)
+{
+	if (is_num_exceed_limits(num, a) == 1)
+		return (*a)->index_of_min;
+	else
+		return get_target_index_in(a, num);
+}
+
+void push_b_to_a(t_stack **a, t_stack **b)
+{
+	t_stack *head_b;
+	int target_index;
+	int len_a;
+
+	head_b = *b;
+	
+	while(head_b)
+	{
+		len_a = stack_len(*a);
+		get_position(a);
+		define_min_max(*a);
+		target_index = get_target_index(a, (*b)->num);
+		if (target_index == 0)
+			pa(a, b);
+		else if(target_index > (len_a / 2))
+		{
+			do_rra(a, len_a - target_index);
+			pa(a, b);
+		}
+		else if (target_index <= (len_a / 2))
+		{
+			do_ra(a, target_index);
+			pa(a, b);
+		}
+		print_both(a, b, 0);
+		head_b = *b;
 	}
 }
 
@@ -158,9 +217,15 @@ void	big_sort(t_stack **a, t_stack **b)
 		push_a_to_b(a, b);
 	if (!stack_sorted(*a))
 		sort_three(a);
-	while(*b)
-		pa(a, b);
-	// while(!stack_sorted(*a))
-	// 	ra(a);
+	push_b_to_a(a, b);
+	// if(!stack_sorted(*a))
+	// {
+	// 	define_min_max(*a);
+	// 	get_position(a);
+	// 	if ((*a)->index_of_min > (stack_len(*a) / 2))
+	// 		do_ra(a, (*a)->index_of_min);
+	// 	else
+	// 		do_rra(a, stack_len(*a) - ((*a)->cur_position - 1));
+	// }
 }
 

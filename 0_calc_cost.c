@@ -6,7 +6,7 @@
 /*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 12:52:44 by vlomakin          #+#    #+#             */
-/*   Updated: 2024/03/18 18:32:06 by lomakinaval      ###   ########.fr       */
+/*   Updated: 2024/03/19 21:40:47 by lomakinaval      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,32 +45,39 @@ void define_cheapest_instructions(t_stack *a)
 		rev_rev_instruction(a, rev_rev_count);
 }
 
-void calc_b_rotations(t_stack *b, t_stack *a)
+int find_rot(t_stack *stack, int num)
 {
+	int rotations;
 	int found_bigger;
 	
+	rotations = 0;
 	found_bigger = 0;
+	while (stack)
+	{
+		if (num < stack->num)
+		{
+			found_bigger = 1;
+			if (!(stack)->next)
+			{
+				rotations = 0;
+				break;
+			}
+		}
+		else if (num > stack->num && found_bigger == 1)
+			break;
+		rotations++;
+		stack = stack->next;
+	}
+	return rotations;
+}
+
+
+void calc_b_rotations(t_stack *b, t_stack *a)
+{
 	if (is_num_exceed_limits(a->num, &b) == 1)
 		a->b_rotations = b->index_of_max;
 	else
-	{
-		while (b)
-		{
-			if (a->num < b->num)
-			{
-				found_bigger = 1;
-				if (!(b)->next)
-				{
-					a->b_rotations = 0;
-					break;
-				}
-			}
-			else if (a->num > b->num && found_bigger == 1)
-				break;
-			a->b_rotations++;
-			b = b->next;
-		}
-	}
+		a->b_rotations = find_rot(b, a->num);
 }
 
 void	calc_cost_for_node(t_stack **b_stack, t_stack *a, int len_a, int a_index)
@@ -82,7 +89,7 @@ void	calc_cost_for_node(t_stack **b_stack, t_stack *a, int len_a, int a_index)
     a->a_rev_rotations = len_a - a_index;
 	a->b_rotations = 0;
 	calc_b_rotations(b, a);
-	a->b_rev_rotations = stack_len(b) - b->b_rotations;
+	a->b_rev_rotations = stack_len(b) - a->b_rotations;
 	a->double_rotations = double_rots(a->a_rotations, a->b_rotations);
 	a->double_rev_rotations = double_rots(a->a_rev_rotations, a->b_rev_rotations);
 	define_cheapest_instructions(a);

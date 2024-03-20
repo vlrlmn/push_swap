@@ -36,7 +36,7 @@ void ra_rb_pb(t_stack **a, t_stack **b, t_stack *cheapest)
         }
     }
     if(a_rot > 0 && b_rot == 0)
-        do_ra(a, cheapest->a_rotations);
+        do_ra(a, a_rot);
     else if (a_rot == 0 && b_rot)
         do_rb(b, b_rot);
     pb(a, b);
