@@ -6,11 +6,12 @@
 /*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 16:23:29 by vlomakin          #+#    #+#             */
-/*   Updated: 2024/03/07 13:00:18 by lomakinaval      ###   ########.fr       */
+/*   Updated: 2024/03/21 16:00:32 by lomakinaval      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
 static int	ft_wordcount(char const *s, char c)
 {
 	size_t	i;

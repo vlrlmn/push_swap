@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   err_free.c                                         :+:      :+:    :+:   */
+/*   0_err_free.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 18:03:26 by vlomakin          #+#    #+#             */
-/*   Updated: 2024/03/08 13:05:17 by lomakinaval      ###   ########.fr       */
+/*   Updated: 2024/03/21 16:04:32 by lomakinaval      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	free_argv(char **processed_argv)
 	int	i;
 
 	i = 0;
+	if (!processed_argv || !*processed_argv)
+		return ;
 	while (processed_argv[i])
 	{
 		free(processed_argv[i]);
@@ -58,8 +60,9 @@ void	free_err(t_stack **a, t_stack **b)
 	exit(1);
 }
 
-void	exit_with_err(char *msg)
+void	exit_with_err(char *msg, char **args)
 {
 	ft_printf(msg);
+	free_argv(args);
 	exit(1);
 }

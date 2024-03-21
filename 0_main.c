@@ -6,7 +6,7 @@
 /*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 18:03:30 by vlomakin          #+#    #+#             */
-/*   Updated: 2024/03/20 12:17:23 by lomakinaval      ###   ########.fr       */
+/*   Updated: 2024/03/21 16:05:11 by lomakinaval      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	perform_sorting(t_stack **a, t_stack **b, char **argv)
 	int	len;
 
 	if (argv[0] == NULL)
-		ft_printf("err");
+		ft_printf("Error\n");
 	fill_stack_a(a, argv);
 	if (!stack_sorted(*a))
 	{
@@ -37,7 +37,7 @@ char	**process_args(int argc, char **argv, int *need_free)
 
 	split_argv = NULL;
 	if (argc == 1 || (argc == 2 && !argv[1][0]))
-		exit_with_err("Error\n");
+		exit_with_err("Error\n", split_argv);
 	else if (argc == 2)
 	{
 		split_argv = ft_split(argv[1], ' ');
@@ -46,7 +46,7 @@ char	**process_args(int argc, char **argv, int *need_free)
 	else
 		split_argv = argv + 1;
 	if (!valid_nums(split_argv))
-		exit_with_err("Error\n");
+		exit_with_err("Error\n", split_argv);
 	return (split_argv);
 }
 
@@ -62,11 +62,6 @@ int	main(int argc, char **argv)
 	b = NULL;
 	processed_argv = process_args(argc, argv, &need_free);
 	perform_sorting(&a, &b, processed_argv);
-	// while(a)
-	// {
-	// 	printf("a: %d\n", a->num);
-	// 	a = a->next;
-	// }
 	free_stack(&a);
 	free_stack(&b);
 	if (need_free)

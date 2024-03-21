@@ -6,7 +6,7 @@
 /*   By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 18:03:37 by vlomakin          #+#    #+#             */
-/*   Updated: 2024/03/18 15:42:29 by lomakinaval      ###   ########.fr       */
+/*   Updated: 2024/03/21 16:04:56 by lomakinaval      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void				get_position(t_stack **stack);
 void				free_err(t_stack **a, t_stack **b);
 void				free_argv(char **processed_argv);
 void				free_stack(t_stack **stack);
-void				exit_with_err(char *msg);
+void				exit_with_err(char *msg, char **args);
 void				free_err1(t_stack **a);
 /*Operations*/
 void				pb(t_stack **stack_a, t_stack **stack_b);
