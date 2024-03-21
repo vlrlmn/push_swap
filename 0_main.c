@@ -49,14 +49,16 @@ char	**process_args(int argc, char **argv, int *need_free)
 		*need_free = 1;
 		if (!split_argv)
 			finish_exit("Error\n");
+		if (!valid_nums(split_argv))
+			exit_with_err("Error\n", split_argv);
 	}
 	else
 	{
 		split_argv = argv + 1;
-		*need_free = 1;
+		*need_free = 0;
+		if(!valid_nums(split_argv))
+			finish_exit("Error\n");
 	}
-	if (!valid_nums(split_argv))
-		exit_with_err("Error\n", split_argv);
 	return (split_argv);
 }
 
