@@ -58,9 +58,9 @@ int	main(int argc, char **argv)
 	char	**processed_argv;
 
 	need_free = 0;
+	processed_argv = process_args(argc, argv, &need_free);
 	a = NULL;
 	b = NULL;
-	processed_argv = process_args(argc, argv, &need_free);
 	perform_sorting(&a, &b, processed_argv);
 	// while(a)
 	// {
