@@ -1,6 +1,6 @@
 NAME = push_swap
 
-CC = cc -Wall -Wextra -Werror -fsanitize=address --debug
+CC = cc -Wall -Wextra -Werror 
 
 SRC = 	0_main.c \
 		0_err_free.c \
@@ -22,7 +22,7 @@ SRC = 	0_main.c \
 
 OBJ = $(SRC:.c=.o)
 
-HDRS = push_swap.h
+HDRS = ../push_swap.h
 
 RM = rm -f
 
@@ -35,7 +35,7 @@ PRINTF = printf/libftprintf.a
 
 $(NAME):		$(OBJ)
 				$(MAKE) -C printf
-				$(MAKE) -C libft
+				$(MAKE) -C Libft
 				${CC} -o $(NAME) $(OBJ) $(LIBFT) $(PRINTF)
 
 all:			$(NAME)
@@ -43,13 +43,13 @@ all:			$(NAME)
 clean:
 			${RM} $(OBJ)
 			$(MAKE) -C printf clean
-			$(MAKE) -C libft clean
+			$(MAKE) -C Libft clean
 
 
 fclean:		clean
 		${RM} $(NAME)
 		$(MAKE) -C printf fclean
-		$(MAKE) -C libft fclean
+		$(MAKE) -C Libft fclean
 
 re:			fclean all
 
