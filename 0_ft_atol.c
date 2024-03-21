@@ -6,7 +6,7 @@ char	ft_iswhitespaces(const int c)
 		|| c == '\r');
 }
 
-int	ft_atol(char *str)
+int	ft_atol(char *str, t_stack **a)
 {
 	int			i;
 	int			n;
@@ -26,7 +26,7 @@ int	ft_atol(char *str)
 		result = result * 10 + (str[i] - '0');
 		if ((n == 1 && (result > INT_MAX)) || (n == -1
 				&& ((-result < INT_MIN))))
-			exit_with_err("Error\n");
+			free_err1(a);
 		i++;
 	}
 	return (result * n);

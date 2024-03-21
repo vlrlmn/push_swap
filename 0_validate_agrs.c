@@ -61,10 +61,7 @@ bool	is_double(char **num_arr, char *num, int index)
 	while (i < index)
 	{
 		if ((nums_cmp(num_arr[i], num)) == 0)
-		{
-			ft_printf("There are duplicates\n");
 			return (true);
-		}
 		else
 			i++;
 	}

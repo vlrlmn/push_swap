@@ -12,12 +12,17 @@
 
 #include "push_swap.h"
 
+void	finish_exit(char *msg)
+{
+	ft_printf(msg);
+	exit(1);
+}
 void	perform_sorting(t_stack **a, t_stack **b, char **argv)
 {
 	int	len;
 
 	if (argv[0] == NULL)
-		ft_printf("Error\n");
+		finish_exit("Error\n");
 	fill_stack_a(a, argv);
 	if (!stack_sorted(*a))
 	{
@@ -37,14 +42,19 @@ char	**process_args(int argc, char **argv, int *need_free)
 
 	split_argv = NULL;
 	if (argc == 1 || (argc == 2 && !argv[1][0]))
-		exit_with_err("Error\n", split_argv);
+		exit(0);
 	else if (argc == 2)
 	{
 		split_argv = ft_split(argv[1], ' ');
 		*need_free = 1;
+		if (!split_argv)
+			finish_exit("Error\n");
 	}
 	else
+	{
 		split_argv = argv + 1;
+		*need_free = 1;
+	}
 	if (!valid_nums(split_argv))
 		exit_with_err("Error\n", split_argv);
 	return (split_argv);

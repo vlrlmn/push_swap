@@ -29,13 +29,12 @@
             "preLaunchTask": "Make build"
         },
         {
-            "name": "4 el",
+            "name": "err",
             "type": "lldb",
             "request": "launch",
             "program": "${cwd}/push_swap",
-            "args": ["4", "3", "2", "1"],
-            "cwd": "${workspaceFolder}",
-            "preLaunchTask": "Make build"
+            "args": ["f", "1"],
+            "cwd": "${workspaceFolder}"
         },
         {
             "name": "5 el",

@@ -17,8 +17,6 @@ void	free_argv(char **processed_argv)
 	int	i;
 
 	i = 0;
-	if (!processed_argv || !*processed_argv)
-		return ;
 	while (processed_argv[i])
 	{
 		free(processed_argv[i]);

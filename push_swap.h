@@ -51,7 +51,7 @@ int					nums_cmp(char *s1, char *s2);
 void				fill_stack_a(t_stack **a, char **argv);
 int					stack_len(t_stack *stack);
 bool				stack_sorted(t_stack *stack);
-int					ft_atol(char *str);
+int					ft_atol(char *str, t_stack **a);
 /*Sort_algorithm*/
 void				get_position(t_stack **stack);
 

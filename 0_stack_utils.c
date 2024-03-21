@@ -90,7 +90,7 @@ void	fill_stack_a(t_stack **a, char **argv)
 	i = 0;
 	while (argv[i])
 	{
-		n = ft_atol(argv[i]);
+		n = ft_atol(argv[i], a);
 		if (n > INT_MAX || n < INT_MIN)
 			free_err1(a);
 		node_created = create_node(a, (int)n);
