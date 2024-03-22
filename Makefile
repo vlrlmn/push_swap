@@ -2,23 +2,24 @@ NAME = push_swap
 
 CC = cc -Wall -Wextra -Werror 
 
-SRC = 	0_main.c \
-		0_err_free.c \
-		0_operations_utils.c \
-		0_push.c \
-		0_rev_rotate.c \
-		0_rotate.c \
-		0_stack_utils.c \
-		0_swap.c \
-		0_validate_agrs.c \
-		0_ft_atol.c \
-		0_big_sort_utils.c \
-		0_sort_three.c \
-		0_calc_cost.c \
-		0_init_sort.c \
-		0_push_operations.c \
-		0_set_rot_instructions.c \
-		0_push_rev_operations.c \
+SRC = 	main.c \
+		ret_error.c \
+		free_memory.c \
+		operations_utils.c \
+		push.c \
+		rev_rotate.c \
+		rotate.c \
+		stack_utils.c \
+		swap.c \
+		validate_agrs.c \
+		ft_atol.c \
+		big_sort_utils.c \
+		sort_three.c \
+		calc_cost.c \
+		init_sort.c \
+		push_operations.c \
+		set_cheapest_instructions.c \
+		push_rev_operations.c \
 
 OBJ = $(SRC:.c=.o)
 

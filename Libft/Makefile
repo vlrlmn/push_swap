@@ -3,14 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lomakinavaleria <lomakinavaleria@studen    +#+  +:+       +#+         #
+#    By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/25 10:45:42 by vlomakin          #+#    #+#              #
-#    Updated: 2023/12/18 15:06:29 by lomakinaval      ###   ########.fr        #
+#    Updated: 2024/03/22 12:44:43 by vlomakin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libft.a
+NAME = Libft.a
 CC = cc
 CFLAGS = -Wall -Wextra -Werror --debug
 AR = ar rcs
