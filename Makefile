@@ -1,6 +1,6 @@
 NAME = push_swap
 
-CC = cc -Wall -Wextra -Werror --debug
+CC = cc -Wall -Wextra -Werror
 
 SRC = 	main.c \
 		ret_error.c \

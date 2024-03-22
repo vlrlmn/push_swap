@@ -6,7 +6,7 @@
 /*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 12:08:48 by vlomakin          #+#    #+#             */
-/*   Updated: 2024/03/22 15:47:46 by vlomakin         ###   ########.fr       */
+/*   Updated: 2024/03/22 17:27:56 by vlomakin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,4 +106,3 @@ void	big_sort(t_stack **a, t_stack **b)
 			do_ra(a, (*a)->index_of_min);
 	}
 }
-

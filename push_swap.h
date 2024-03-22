@@ -6,7 +6,7 @@
 /*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 18:03:37 by vlomakin          #+#    #+#             */
-/*   Updated: 2024/03/22 12:47:14 by vlomakin         ###   ########.fr       */
+/*   Updated: 2024/03/22 17:22:57 by vlomakin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void				free_argv(char **processed_argv);
 void				free_stack(t_stack **stack);
 void				exit_with_err(char *msg, char **args);
 void				free_err1(t_stack **a);
-void				finish_exit(char *msg);
+void				finish_exit(int fd);
 void				pb(t_stack **stack_a, t_stack **stack_b);
 void				pa(t_stack **stack_a, t_stack **stack_b);
 void				rrr(t_stack **stack_a, t_stack **stack_b);

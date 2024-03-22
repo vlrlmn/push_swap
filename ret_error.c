@@ -6,15 +6,15 @@
 /*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 18:03:26 by vlomakin          #+#    #+#             */
-/*   Updated: 2024/03/22 12:05:53 by vlomakin         ###   ########.fr       */
+/*   Updated: 2024/03/22 17:23:36 by vlomakin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	finish_exit(char *msg)
+void	finish_exit(int fd)
 {
-	ft_printf(msg);
+	ft_putstr_fd("Error\n", fd);
 	exit(1);
 }
 

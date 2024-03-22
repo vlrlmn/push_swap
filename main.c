@@ -6,7 +6,7 @@
 /*   By: vlomakin <vlomakin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 18:03:30 by vlomakin          #+#    #+#             */
-/*   Updated: 2024/03/22 15:42:51 by vlomakin         ###   ########.fr       */
+/*   Updated: 2024/03/22 17:27:39 by vlomakin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	perform_sorting(t_stack **a, t_stack **b, char **argv)
 	int	len;
 
 	if (argv[0] == NULL)
-		finish_exit("Error\n");
+		finish_exit(2);
 	fill_stack_a(a, argv);
 	if (!stack_sorted(*a))
 	{
@@ -36,14 +36,16 @@ char	**process_args(int argc, char **argv, int *need_free)
 	char	**split_argv;
 
 	split_argv = NULL;
-	if (argc == 1 || (argc == 2 && !argv[1][0]))
-		exit(0);
+	if (argc == 1)
+		exit(1);
+	if (argc == 2 && !argv[1][0])
+		finish_exit(2);
 	else if (argc == 2)
 	{
 		split_argv = ft_split(argv[1], ' ');
 		*need_free = 1;
 		if (!split_argv)
-			finish_exit("Error\n");
+			finish_exit(2);
 		if (!valid_nums(split_argv))
 			exit_with_err("Error\n", split_argv);
 	}
@@ -52,7 +54,7 @@ char	**process_args(int argc, char **argv, int *need_free)
 		split_argv = argv + 1;
 		*need_free = 0;
 		if (!valid_nums(split_argv))
-			finish_exit("Error\n");
+			finish_exit(2);
 	}
 	return (split_argv);
 }
@@ -69,11 +71,6 @@ int	main(int argc, char **argv)
 	a = NULL;
 	b = NULL;
 	perform_sorting(&a, &b, processed_argv);
-	// while(a)
-	// {
-	// 	printf("%d\n", a->num);
-	// 	a = a->next;
-	// }
 	free_stack(&a);
 	free_stack(&b);
 	if (need_free)
