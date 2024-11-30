@@ -34,7 +34,7 @@ The checker program reads instructions from the standard input and executes them
 
 1. Clone the repository:
 ```bash
-git clone <repository-url>
+git clone https://github.com/vlrlmn/push_swap.git
 ```
 2. Compile the programs:
 ```bash
