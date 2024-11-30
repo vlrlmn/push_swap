@@ -50,12 +50,8 @@ make
 ```bash
 ./checker 2 1 3 6 5 8
 ```
-Input the commands manually or redirect from a file:
-```bash
-echo
-"ra
-pb
-ra
-ra
-pa" | ./checker 2 1 3 6 5 8
-```
+
+### Score and Evaluation
+
+The score of this project is primarily based on the efficiency of the sorting algorithm implemented. The fewer operations push_swap generates to successfully sort the array, the higher the score awarded. Striving for optimization is crucial to achieving a high score in this project.
+
