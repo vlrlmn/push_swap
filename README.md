@@ -3,7 +3,7 @@
 ## Overview
 The "Push Swap" project is part of the 42 school's algorithmic curriculum that challenges students to sort numbers into ascending order using two stacks. The main goal is to sort the data with a limited set of instructions, using the smallest number of actions possible.
 
-*** Visual representation of how 5000 elements was sorted withmy algorithm ***
+***Visual representation of how 5000 elements was sorted withmy algorithm***
 ![Vizualizer](https://github.com/vlrlmn/push_swap/blob/main/images/vizualizer-ezgif.com-video-to-gif-converter.gif)
 
 ## Description
