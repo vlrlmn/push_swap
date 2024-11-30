@@ -52,9 +52,10 @@ make
 ```
 Input the commands manually or redirect from a file:
 ```bash
-echo "ra
-pb\n
-ra\n
-ra\n
+echo
+"ra
+pb
+ra
+ra
 pa" | ./checker 2 1 3 6 5 8
 ```
